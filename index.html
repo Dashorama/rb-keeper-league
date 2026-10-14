@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RB Keeper League</title>
+<style>
+  :root { --bg:#fff; --fg:#1b1f23; --muted:#5b6670; --line:#d8dee4; --card:#f6f8fa;
+          --final:#9a6700; --final-bg:#fff8c5; --expired:#cf222e; --expired-bg:#ffebe9; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0d1117; --fg:#e6edf3; --muted:#8b949e; --line:#30363d; --card:#161b22;
+            --final:#e3b341; --final-bg:#3a2d00; --expired:#ff7b72; --expired-bg:#4a1519; }
+  }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.4 system-ui,sans-serif; }
+  main { max-width:760px; margin:0 auto; padding:16px; }
+  h1 { font-size:1.4rem; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 16px; }
+  label { font-weight:600; margin-right:8px; }
+  select { font:inherit; padding:4px 8px; max-width:100%; }
+  section { background:var(--card); border:1px solid var(--line); border-radius:8px; margin:16px 0; padding:12px 16px; }
+  h2 { font-size:1.1rem; margin:0; } .owner { color:var(--muted); font-size:.9rem; margin-bottom:8px; }
+  table { width:100%; border-collapse:collapse; }
+  th, td { text-align:left; padding:6px 4px; border-top:1px solid var(--line); }
+  th { color:var(--muted); font-weight:600; font-size:.85rem; border-top:0; }
+  td.n, th.n { text-align:right; font-variant-numeric:tabular-nums; }
+  tr.final td { background:var(--final-bg); } tr.expired td { background:var(--expired-bg); }
+  tr.expired .player { text-decoration:line-through; }
+  .tag { display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.03em; padding:1px 6px;
+         border-radius:4px; margin-left:6px; border:1px solid currentColor; vertical-align:middle; }
+  .tag.final { color:var(--final); } .tag.expired { color:var(--expired); } .tag.traded { color:var(--muted); }
+  .err { color:var(--expired); font-weight:600; }
+  footer { color:var(--muted); font-size:.85rem; margin-top:24px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>RB Keeper League</h1>
+  <p class="sub" id="season">Loading…</p>
+  <p><label for="team">Team</label><select id="team"></select></p>
+  <div id="out"></div>
+  <footer>
+    <span class="tag final">FINAL YEAR</span> last season this keeper can be kept ·
+    <span class="tag expired">EXPIRED</span> no longer keepable ·
+    <span class="tag traded">TRADED</span> +1 year.
+    Data: <a href="data/keepers.json">data/keepers.json</a>.
+  </footer>
+</main>
+<script type="module">
+import { computeLeague } from "./keeper-math.js";
+
+const out = document.getElementById("out");
+const pick = document.getElementById("team");
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; };
+
+// ?asOf=YYYY-MM-DD previews the board on another date (e.g. after next July 1).
+const asOf = new URLSearchParams(location.search).get("asOf");
+const now = asOf && /^\d{4}-\d{2}-\d{2}$/.test(asOf) ? new Date(`${asOf}T12:00:00`) : new Date();
+
+function teamSection(t) {
+  const sec = el("section");
+  sec.dataset.team = t.name;
+  sec.append(el("h2", "", t.name), el("div", "owner", t.owner));
+  const table = el("table");
+  const head = el("tr");
+  for (const [h, n] of [["Keeper", 0], ["Years Remaining", 1], ["Year Expiring", 1]]) head.append(el("th", n ? "n" : "", h));
+  table.append(head);
+  for (const k of t.keepers) {
+    const tr = el("tr", k.status);
+    const name = el("td");
+    name.append(el("span", "player", k.player));
+    if (k.status === "final") name.append(el("span", "tag final", "FINAL YEAR"));
+    if (k.status === "expired") name.append(el("span", "tag expired", "EXPIRED"));
+    if (k.traded) name.append(el("span", "tag traded", "TRADED"));
+    tr.append(name, el("td", "n", String(k.yearsRemaining)), el("td", "n", String(k.yearExpiring)));
+    table.append(tr);
+  }
+  sec.append(table);
+  return sec;
+}
+
+function render(league) {
+  const want = pick.value;
+  out.replaceChildren(...league.teams.filter((t) => want === "*" || t.name === want).map(teamSection));
+}
+
+try {
+  const res = await fetch("data/keepers.json", { cache: "no-cache" });
+  if (!res.ok) throw new Error(`data/keepers.json: HTTP ${res.status}`);
+  const league = computeLeague(await res.json(), now);
+  document.getElementById("season").textContent =
+    `${league.season}-${String(league.season + 1).slice(2)} season` + (asOf ? ` (previewing ${asOf})` : "");
+  pick.append(new Option("All teams", "*"), ...league.teams.map((t) => new Option(t.name, t.name)));
+  pick.addEventListener("change", () => render(league));
+  render(league);
+} catch (e) {
+  document.getElementById("season").replaceChildren(el("span", "err", `Could not load keepers: ${e.message}`));
+}
+</script>
+</body>
+</html>

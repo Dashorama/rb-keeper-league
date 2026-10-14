@@ -7,8 +7,5 @@
   "scripts": {
     "validate": "node scripts/validate.mjs",
     "test": "node scripts/validate.mjs && node --test test/"
-  },
-  "devDependencies": {
-    "ajv": "8.17.1"
   }
 }

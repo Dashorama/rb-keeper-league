@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RB Keeper League data",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["settings", "teams"],
+  "properties": {
+    "settings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["keeperTermYears", "tradedExtraYears", "seasonRolloverMonth"],
+      "properties": {
+        "keeperTermYears": { "type": "integer", "minimum": 1, "maximum": 10 },
+        "tradedExtraYears": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "seasonRolloverMonth": { "type": "integer", "minimum": 1, "maximum": 12 }
+      }
+    },
+    "teams": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "owner", "keepers"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "owner": { "type": "string", "pattern": "^[^\\s]+$", "description": "First name only - one word, no surname" },
+          "keepers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["player", "firstYearKept", "traded"],
+              "properties": {
+                "player": { "type": "string", "minLength": 1 },
+                "firstYearKept": { "type": "integer", "minimum": 2000, "maximum": 2100 },
+                "traded": { "type": "boolean" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

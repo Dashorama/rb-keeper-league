@@ -1,0 +1,381 @@
+{
+  "settings": {
+    "keeperTermYears": 3,
+    "tradedExtraYears": 1,
+    "seasonRolloverMonth": 7
+  },
+  "teams": [
+    {
+      "name": "Knies Deep",
+      "owner": "David",
+      "keepers": [
+        {
+          "player": "Igor Shesterkin",
+          "firstYearKept": 2024,
+          "traded": false
+        },
+        {
+          "player": "Matthew Knies",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Sam Reinhart",
+          "firstYearKept": 2024,
+          "traded": false
+        },
+        {
+          "player": "Brandon Hagel",
+          "firstYearKept": 2025,
+          "traded": false
+        },
+        {
+          "player": "Quinn Hughes",
+          "firstYearKept": 2024,
+          "traded": false
+        }
+      ]
+    },
+    {
+      "name": "Makings of a Varsity Athlete",
+      "owner": "Steven",
+      "keepers": [
+        {
+          "player": "Pavel Dorofeyev",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Filip Forsberg",
+          "firstYearKept": 2024,
+          "traded": false
+        },
+        {
+          "player": "Aleksander Barkov",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Cole Caufield",
+          "firstYearKept": 2025,
+          "traded": false
+        },
+        {
+          "player": "Evan Bouchard",
+          "firstYearKept": 2024,
+          "traded": false
+        }
+      ]
+    },
+    {
+      "name": "Sam Rosen Rules",
+      "owner": "Sean",
+      "keepers": [
+        {
+          "player": "Logan Thompson",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Nikita Zadorov",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Sebastian Aho",
+          "firstYearKept": 2025,
+          "traded": false
+        },
+        {
+          "player": "Jack Eichel",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Matt Boldy",
+          "firstYearKept": 2024,
+          "traded": false
+        }
+      ]
+    },
+    {
+      "name": "Trou Trou Train",
+      "owner": "Connor",
+      "keepers": [
+        {
+          "player": "Scott Wedgewood",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Kirill Kaprizov",
+          "firstYearKept": 2025,
+          "traded": false
+        },
+        {
+          "player": "Darnell Nurse",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Tom Wilson",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Dylan Cozens",
+          "firstYearKept": 2026,
+          "traded": false
+        }
+      ]
+    },
+    {
+      "name": "Bitch Slappers",
+      "owner": "Jack",
+      "keepers": [
+        {
+          "player": "Andrei Vasilevskiy",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Leo Carlsson",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Nick Suzuki",
+          "firstYearKept": 2025,
+          "traded": false
+        },
+        {
+          "player": "Cale Makar",
+          "firstYearKept": 2024,
+          "traded": false
+        },
+        {
+          "player": "Macklin Celebrini",
+          "firstYearKept": 2025,
+          "traded": false
+        }
+      ]
+    },
+    {
+      "name": "Julie the Cat",
+      "owner": "Angela",
+      "keepers": [
+        {
+          "player": "Karel Vejmelka",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "J.T. Miller",
+          "firstYearKept": 2024,
+          "traded": false
+        },
+        {
+          "player": "Adrian Kempe",
+          "firstYearKept": 2025,
+          "traded": false
+        },
+        {
+          "player": "Matthew Schaefer",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Auston Matthews",
+          "firstYearKept": 2026,
+          "traded": false
+        }
+      ]
+    },
+    {
+      "name": "KNUCKLE PUCK TIME!!!",
+      "owner": "Randall",
+      "keepers": [
+        {
+          "player": "Tim Stutzle",
+          "firstYearKept": 2025,
+          "traded": false
+        },
+        {
+          "player": "Clayton Keller",
+          "firstYearKept": 2025,
+          "traded": false
+        },
+        {
+          "player": "Cutter Gauthier",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Kyle Connor",
+          "firstYearKept": 2024,
+          "traded": false
+        },
+        {
+          "player": "Lane Hutson",
+          "firstYearKept": 2025,
+          "traded": false
+        }
+      ]
+    },
+    {
+      "name": "Cuylle-O",
+      "owner": "Bobby",
+      "keepers": [
+        {
+          "player": "Jordan Binnington",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Jake Sanderson",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Juraj Slafkovský",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Matthew Tkachuk",
+          "firstYearKept": 2024,
+          "traded": false
+        },
+        {
+          "player": "Mikko Rantanen",
+          "firstYearKept": 2026,
+          "traded": false
+        }
+      ]
+    },
+    {
+      "name": "Miller's High Life",
+      "owner": "Adam",
+      "keepers": [
+        {
+          "player": "Ilya Sorokin",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Mitch Marner",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Zach Hyman",
+          "firstYearKept": 2024,
+          "traded": false
+        },
+        {
+          "player": "Miro Heiskanen",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Andrei Svechnikov",
+          "firstYearKept": 2026,
+          "traded": false
+        }
+      ]
+    },
+    {
+      "name": "The Bad Place",
+      "owner": "Kevin",
+      "keepers": [
+        {
+          "player": "Connor Bedard",
+          "firstYearKept": 2024,
+          "traded": false
+        },
+        {
+          "player": "Drake Batherson",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Dylan Guenther",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Zach Werenski",
+          "firstYearKept": 2025,
+          "traded": false
+        },
+        {
+          "player": "Nikita Kucherov",
+          "firstYearKept": 2025,
+          "traded": false
+        }
+      ]
+    },
+    {
+      "name": "Jews for McJesus",
+      "owner": "Charlie",
+      "keepers": [
+        {
+          "player": "Spencer Knight",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Adam Fox",
+          "firstYearKept": 2025,
+          "traded": false
+        },
+        {
+          "player": "Mark Scheifele",
+          "firstYearKept": 2025,
+          "traded": false
+        },
+        {
+          "player": "Wyatt Johnston",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "Connor McDavid",
+          "firstYearKept": 2026,
+          "traded": false
+        }
+      ]
+    },
+    {
+      "name": "Hanstuetzle and Guentzel",
+      "owner": "Brad",
+      "keepers": [
+        {
+          "player": "Shea Theodore",
+          "firstYearKept": 2025,
+          "traded": false
+        },
+        {
+          "player": "Lucas Raymond",
+          "firstYearKept": 2026,
+          "traded": false
+        },
+        {
+          "player": "William Nylander",
+          "firstYearKept": 2023,
+          "traded": true
+        },
+        {
+          "player": "Jake Guentzel",
+          "firstYearKept": 2025,
+          "traded": false
+        },
+        {
+          "player": "Brady Tkachuk",
+          "firstYearKept": 2024,
+          "traded": false
+        }
+      ]
+    }
+  ]
+}
