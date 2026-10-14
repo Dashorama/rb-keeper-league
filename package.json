@@ -1,0 +1,14 @@
+{
+  "name": "rb-keeper-league",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "RB Keeper League keeper board: a static page backed by data/keepers.json",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "test": "node scripts/validate.mjs && node --test test/"
+  },
+  "devDependencies": {
+    "ajv": "8.17.1"
+  }
+}
